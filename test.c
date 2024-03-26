@@ -61,7 +61,7 @@ void push_a(int *s_a, int *s_b, t_pos *data)
 	i = 0;
 	while (s_a[i] != 0)
 		i++;
-	while (i--)// here is strange
+	while (i--)
 		ft_swap(&s_a[i + 1], &s_a[i]);
 	ft_swap(&s_a[0], &tmp);
 	data->b--;
@@ -158,7 +158,6 @@ int	abs(int a)
 
 void	stack_a_sort(int *sa, int *sb, t_pos *data)
 {
-	//here is strange ex) [2,3,1,4,5] -> 1,2,3,5,4
 	while (pos_checking(sa, data->count_a - 1, data->a) != 0)
 	{
 		printf("%d :[%d]\n", data->a,pos_checking(sa, data->count_a - 1, data->a));
@@ -239,29 +238,7 @@ void	push_while(int *sa, int *sb, t_pos *data)
 	puts("");
 }
 
-	/*
-//		if (i == data->count_a - 1)// here is changeing to while ( .. != 0 )
-//		{
-//			data->a = 0;
-//			break ;
-//		}
-
-	int v = 0;
-	int count = 1;
-	while (v < data->count_a / 2 - 1)// here is starange ex) [2,4,5,3,1]
-	{
-		if (sa[v + 1] - sa[v] == 1)
-			count++;
-		v++;
-	}
-	if (count == data->count_a / 2)
-	{
-		while (count--)
-			rotate_reverse_a(sa, data->count_a);
-	}
-	*/
-
-int	search_a(int *sa, t_pos *data)// here is check!
+int	search_a(int *sa, t_pos *data)
 {
 	int	i;
 	int	j;
@@ -309,7 +286,7 @@ void	set_default(t_pos *data, int count)
 
 int main(void)
 {
-	// int stack_a[5] = {3,4,2,1,5};
+	int stack_a[5] = {3,4,2,1,5};
 	// int stack_a[4] = {4,1,3,2};
 	// int stack_a[5] = {2,3,1,4,5};
 	//int stack_a[5] = {2,4,3,5,1};
@@ -328,7 +305,5 @@ int main(void)
 	}
 //	stack_a_sort(stack_a, stack_b, &data);
 	quick(stack_a, stack_b, &data);
-	printf("%d\n", sort_checking(stack_a, count));
 	return (0);
-	
 }
