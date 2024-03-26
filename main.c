@@ -224,9 +224,6 @@ void	rotate_reverse_a(int *s, int count)
 	write(1, "rra\n", 4);
 }
 
-
-
-
 void push_b(int *s_a, int *s_b, t_pos *data)
 {
 	int i;
@@ -288,7 +285,6 @@ int *cc(int *s_a, int count)
 	int	judge;
 
 	i = 0;
-
 	new_s = ft_calloc(count, sizeof(int));
 	if (!new_s)
 		return (free(s_a), NULL);
@@ -398,8 +394,8 @@ void	push_while(int *sa, int *sb, t_pos *data)
 			rotate_reverse_a(sa, data->count_a - 1 - data->b);
 		if (sa[0] > sa[1] && sa[1] != 0)
 			sort_a(sa);
-		if (abs(sa[1] - sa[0]) -  abs(sa[0] - sb[0]) == 0 || \
-		abs(sa[0] - sa[data->count_a - 1 - data->b]) > abs(sa[0] - sb[0])) 
+		if (abs(sa[1] - sa[0]) - abs(sa[0] - sb[0]) == 0 || \
+		abs(sa[0] - sa[data->count_a - 1 - data->b]) > abs(sa[0] - sb[0]))
 			push_a(sa, sb, data);
 		else if (sa[data->count_a - 1 - data->b] != 0 && sa[1] != 0)
 			rotate_reverse_a(sa, data->count_a - 1 - data->b);
@@ -412,7 +408,7 @@ void	push_while(int *sa, int *sb, t_pos *data)
 		data->a = 0;
 	}
 	data->a = 0;
-	stack_a_sort(sa,sb, data);
+	stack_a_sort(sa, sb, data);
 }
 
 void	quick(int *sa, int *sb, t_pos *data)
@@ -431,8 +427,8 @@ void	quick(int *sa, int *sb, t_pos *data)
 
 void	quick_sorting(int *stack_a, int count)
 {
-	int	*new_a;
-	int	*stack_b;
+	int		*new_a;
+	int		*stack_b;
 	t_pos	data;
 
 	set_default(&data, count);
@@ -453,7 +449,7 @@ void	quick_sorting(int *stack_a, int count)
 	if (count <= 4)
 	{
 		stack_a_sort(new_a, stack_b, &data);
-		return ;	
+		return ;
 	}
 	quick(stack_a, stack_b, &data);
 }
